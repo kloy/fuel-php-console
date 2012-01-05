@@ -1,4 +1,12 @@
 <?php
+/**
+ * PHP Console class
+ *
+ * @version    1.0
+ * @author     Keith Loy
+ * @license    MIT License
+ * @copyright  2011-2012 Keith Loy
+ */
 
 namespace PHP_Console;
 
@@ -20,6 +28,12 @@ class PHP_Console {
 			\PhpConsole::start();
 			static::$_inited = true;
 		}
+
+		if (is_array($message))
+		{
+			$message = \Format::forge( $message )->to_json();
+		}
+
 		return debug($message, $tags);
 	}
 
