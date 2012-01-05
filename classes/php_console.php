@@ -17,6 +17,9 @@ class PHP_Console {
 	private static $_inited = false;
 	protected static $_dev = null;
 
+	// Example usage.
+	// \PHP_Console::log("just testing", 'Welcome Controller');
+	// \PHP_Console::log(array('foo', 'bar'), 'Welcome Controller');
 	public static function log($message, $tags = 'debug')
 	{
 		if ( ! static::_is_dev())
@@ -29,11 +32,6 @@ class PHP_Console {
 			static::$_inited = true;
 		}
 
-		// if (!is_string($message))
-		// {
-		//	// $message = \Format::forge( $message )->to_json();
-		//	$message = var_export($message, true);
-		// }
 		$message = var_export($message, true);
 
 		return debug($message, $tags);
