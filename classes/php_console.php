@@ -29,10 +29,12 @@ class PHP_Console {
 			static::$_inited = true;
 		}
 
-		if (is_array($message))
-		{
-			$message = \Format::forge( $message )->to_json();
-		}
+		// if (!is_string($message))
+		// {
+		//	// $message = \Format::forge( $message )->to_json();
+		//	$message = var_export($message, true);
+		// }
+		$message = var_export($message, true);
 
 		return debug($message, $tags);
 	}
